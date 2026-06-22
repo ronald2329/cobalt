@@ -30,6 +30,7 @@
     import DialogHolder from "$components/dialog/DialogHolder.svelte";
     import ProcessingQueue from "$components/queue/ProcessingQueue.svelte";
     import UpdateNotification from "$components/misc/UpdateNotification.svelte";
+    import AdBanner from "$components/ads/AdBanner.svelte";
 
     $: reduceMotion =
         $settings.accessibility.reduceMotion || device.prefers.reducedMotion;
@@ -123,6 +124,7 @@
             {/if}
             <slot></slot>
         </div>
+        <AdBanner />
     </div>
 </div>
 
