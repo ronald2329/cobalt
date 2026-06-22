@@ -108,7 +108,7 @@
                     {#if currentAd.mediaUrl}
                         <div class="ad-thumb">
                             {#if guessMediaType(currentAd.mediaUrl) === "image"}
-                                <img src={currentAd.mediaUrl} alt={currentAd.title ?? "Anúncio"} />
+                                <img src={currentAd.mediaUrl} alt={currentAd.title ?? "Anúncio"} crossorigin="anonymous" />
                             {:else}
                                 <video
                                     src={currentAd.mediaUrl}
@@ -116,6 +116,7 @@
                                     loop
                                     autoplay
                                     playsinline
+                                    crossorigin="anonymous"
                                 />
                             {/if}
                         </div>
