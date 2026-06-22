@@ -1,0 +1,12 @@
+{
+    "link_area": "área de entrada de link",
+    "link_area.turnstile": "área de entrada de link. verificando se você não é um robô.",
+    "clear_input": "limpar entrada",
+    "download": "baixar",
+    "download.think": "processando o link...",
+    "download.check": "verificando o download...",
+    "download.done": "download concluído",
+    "download.error": "erro no download",
+    "tutorial.shortcut.photos": "adicionar atalho para fotos",
+    "tutorial.shortcut.files": "adicionar atalho para arquivos"
+}

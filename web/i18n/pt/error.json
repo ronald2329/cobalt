@@ -1,0 +1,8 @@
+{
+    "import.no_data": "não há configurações para carregar deste arquivo. você tem certeza de que é o correto?",
+    "import.invalid": "este arquivo não contém configurações válidas do cobalt para importar. você tem certeza de que é o correto?",
+    "import.unknown": "não foi possível carregar dados do arquivo. pode estar corrompido ou em formato errado. aqui está o erro que recebi:\n\n{{ value }}",
+    "tunnel.probe": "não foi possível testar esse túnel. seu navegador ou configuração de rede pode estar bloqueando acesso a algum servidor do cobalt. você tem certeza de que não há extensões estranhas?",
+    "captcha_too_long": "o cloudflare turnstile está demorando demais para verificar se você não é um robô. tente novamente, mas se demorar muito de novo, você pode: desativar extensões estranhas, mudar de rede, usar outro navegador ou verificar seu dispositivo por malware.",
+    "pipeline.missing_response_data": "a instância de processamento não retornou as informações de arquivo necessárias, então não posso criar um pipeline de processamento local para você. tente novamente em alguns segundos e reporte se continuar!"
+}

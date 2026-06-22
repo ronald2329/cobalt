@@ -1,0 +1,16 @@
+{
+    "reset_settings.title": "redefinir todas as configurações?",
+    "reset_settings.body": "tem certeza de que deseja redefinir todas as configurações? esta ação é imediata e irreversível.",
+    "picker.title": "selecione o que salvar",
+    "picker.description.desktop": "clique em um item para salvá-lo. imagens também podem ser salvas pelo menu de botão direito.",
+    "picker.description.phone": "pressione um item para salvá-lo. imagens também podem ser salvas com pressão longa.",
+    "picker.description.ios": "pressione um item para salvá-lo com um atalho. imagens também podem ser salvas com pressão longa.",
+    "saving.title": "escolha como salvar",
+    "saving.blocked": "o cobalt tentou abrir o arquivo em uma nova aba, mas seu navegador bloqueou. você pode permitir pop-ups para evitar isso da próxima vez.",
+    "saving.timeout": "o cobalt tentou salvar o arquivo automaticamente, mas seu navegador interrompeu. você deve selecionar um método preferido manualmente.",
+    "safety.title": "aviso de segurança importante",
+    "import.body": "importar arquivos desconhecidos ou corrompidos pode alterar ou quebrar a funcionalidade do cobalt inesperadamente. importe apenas arquivos que você exportou pessoalmente e não modificou. se alguém pediu para você importar este arquivo, não faça.\n\nnão nos responsabilizamos por qualquer dano causado pela importação de arquivos de configuração desconhecidos.",
+    "safety.custom_instance.body": "instâncias customizadas podem representar riscos de privacidade e segurança.\n\ninstâncias maliciosas podem:\n1. redirecionar você para fora do cobalt e tentar aplicar golpes.\n2. registrar todas as informações sobre suas requisições, armazená-las para sempre e usá-las para rastrear você.\n3. servir arquivos maliciosos (como malware).\n4. forçar você a assistir anúncios ou pagar para baixar.\n\napós esse ponto, não podemos protegê-lo. por favor, seja cuidadoso com as instâncias que usa e sempre confie na sua intuição. se algo parecer estranho, volte a esta página, redefina a instância customizada e reporte no github.",
+    "clear_cache.title": "limpar todo o cache?",
+    "clear_cache.body": "todos os arquivos da fila de processamento serão removidos e recursos no dispositivo demorarão mais para carregar. esta ação é imediata e irreversível."
+}
