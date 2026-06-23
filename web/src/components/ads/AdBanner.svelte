@@ -10,7 +10,7 @@
         linkUrl?: string;
     };
 
-    let ads: AdItem[] = [];
+    let ex: AdItem[] = [];
     let currentIndex = 0;
     let interval: number | undefined;
     let currentAd: AdItem | null = null;
@@ -24,8 +24,8 @@
     }
 
     function nextAd() {
-        if (ads.length > 1) {
-            currentIndex = (currentIndex + 1) % ads.length;
+        if (ex.length > 1) {
+            currentIndex = (currentIndex + 1) % ex.length;
         }
     }
 
@@ -72,7 +72,7 @@
         apiPost(`/ads/${id}/click`, { os, deviceType });
     }
 
-    $: currentAd = ads[currentIndex] ?? null;
+    $: currentAd = ex[currentIndex] ?? null;
 
     onMount(async () => {
         if (!browser) return;
@@ -80,14 +80,14 @@
         try {
             const res = await fetch(`${API}/ads/public?placement=landing-page`);
             if (res.ok) {
-                ads = await res.json();
-                ads.forEach((ad) => trackImpression(ad.id));
+                ex = await res.json();
+                ex.forEach((ad) => trackImpression(ad.id));
             }
         } catch (e) {
             console.warn("AdBanner: failed to load ads", e);
         }
 
-        if (ads.length > 1) {
+        if (ex.length > 1) {
             interval = window.setInterval(nextAd, 6000);
         }
     });
@@ -100,13 +100,13 @@
 </script>
 
 {#if currentAd}
-    <div class="ad-banner-fixed">
-        <div class="ad-banner-inner">
-            <div class="ad-tag">Anúncio</div>
-            <div class="ad-banner-content" on:click={nextAd}>
-                <div class="ad-item">
+    <div class="ex-banner-fixed">
+        <div class="ex-banner-inner">
+            <div class="ex-tag">Anúncio</div>
+            <div class="ex-banner-content" on:click={nextAd}>
+                <div class="ex-item">
                     {#if currentAd.mediaUrl}
-                        <div class="ad-thumb">
+                        <div class="ex-thumb">
                             {#if guessMediaType(currentAd.mediaUrl) === "image"}
                                 <img src={currentAd.mediaUrl} alt={currentAd.title ?? "Anúncio"} crossorigin="anonymous" />
                             {:else}
@@ -122,14 +122,14 @@
                         </div>
                     {/if}
 
-                    <div class="ad-text">
-                        <div class="ad-title">{currentAd.title || "Anúncio"}</div>
-                        <div class="ad-desc">{currentAd.description}</div>
+                    <div class="ex-text">
+                        <div class="ex-title">{currentAd.title || "Anúncio"}</div>
+                        <div class="ex-desc">{currentAd.description}</div>
                     </div>
 
                     {#if currentAd.linkUrl}
                         <a
-                            class="ad-cta"
+                            class="ex-cta"
                             href={currentAd.linkUrl}
                             target="_blank"
                             rel="noopener noreferrer"
@@ -141,9 +141,9 @@
                 </div>
             </div>
 
-            {#if ads.length > 1}
-                <div class="ad-dots">
-                    {#each ads as _, i}
+            {#if ex.length > 1}
+                <div class="ex-dots">
+                    {#each ex as _, i}
                         <span class:active={i === currentIndex}></span>
                     {/each}
                 </div>
@@ -153,7 +153,7 @@
 {/if}
 
 <style>
-    .ad-banner-fixed {
+    .ex-banner-fixed {
         position: fixed;
         bottom: 0;
         left: 0;
@@ -169,7 +169,7 @@
         pointer-events: auto;
     }
 
-    .ad-banner-inner {
+    .ex-banner-inner {
         max-width: 900px;
         width: 100%;
         display: flex;
@@ -178,7 +178,7 @@
         position: relative;
     }
 
-    .ad-tag {
+    .ex-tag {
         flex-shrink: 0;
         padding: 6px 10px;
         font-size: 12px;
@@ -190,19 +190,19 @@
         letter-spacing: 0.08em;
     }
 
-    .ad-banner-content {
+    .ex-banner-content {
         flex: 1;
         cursor: pointer;
         min-width: 0;
     }
 
-    .ad-item {
+    .ex-item {
         display: flex;
         align-items: center;
         gap: 12px;
     }
 
-    .ad-thumb {
+    .ex-thumb {
         width: 56px;
         height: 56px;
         flex-shrink: 0;
@@ -211,20 +211,20 @@
         background: #10101a;
     }
 
-    .ad-thumb img,
-    .ad-thumb video {
+    .ex-thumb img,
+    .ex-thumb video {
         width: 100%;
         height: 100%;
         object-fit: cover;
         display: block;
     }
 
-    .ad-text {
+    .ex-text {
         flex: 1;
         min-width: 0;
     }
 
-    .ad-title {
+    .ex-title {
         font-size: 13px;
         font-weight: 700;
         color: #fff;
@@ -233,7 +233,7 @@
         text-overflow: ellipsis;
     }
 
-    .ad-desc {
+    .ex-desc {
         font-size: 11px;
         color: #94a3b8;
         white-space: nowrap;
@@ -241,7 +241,7 @@
         text-overflow: ellipsis;
     }
 
-    .ad-cta {
+    .ex-cta {
         flex-shrink: 0;
         padding: 6px 14px;
         font-size: 12px;
@@ -253,7 +253,7 @@
         white-space: nowrap;
     }
 
-    .ad-dots {
+    .ex-dots {
         display: flex;
         gap: 4px;
         position: absolute;
@@ -262,7 +262,7 @@
         transform: translateX(-50%);
     }
 
-    .ad-dots span {
+    .ex-dots span {
         width: 6px;
         height: 6px;
         border-radius: 50%;
@@ -270,7 +270,7 @@
         transition: background 0.3s;
     }
 
-    .ad-dots span.active {
+    .ex-dots span.active {
         background: #00e676;
     }
 </style>
